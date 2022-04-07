@@ -4,6 +4,7 @@ import android.util.Log
 import com.gusrinda.marketplace.core.data.source.local.LocalDataSource
 import com.gusrinda.marketplace.core.data.source.remote.RemoteDataSource
 import com.gusrinda.marketplace.core.data.source.remote.network.Resource
+import com.gusrinda.marketplace.core.data.source.remote.request.DaftarTokoRequest
 import com.gusrinda.marketplace.core.data.source.remote.request.LoginRequest
 import com.gusrinda.marketplace.core.data.source.remote.request.RegisterRequest
 import com.gusrinda.marketplace.core.data.source.remote.request.UpdateRequest
@@ -56,7 +57,7 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
             }
         } catch (e: Exception) {
             emit(Resource.error(e.message?: "Terjadi Kesalahan !", null))
-            logs("LOGIN ERROR :: " + e.message)
+            logs("REGISTER ERROR :: " + e.message)
         }
     }
 
@@ -99,6 +100,25 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
         } catch (e: Exception) {
             emit(Resource.error(e.message?: "Terjadi Kesalahan !", null))
             logs("LOGIN ERROR :: " + e.message)
+        }
+    }
+
+    fun daftarToko(dataRequest : DaftarTokoRequest) = flow {
+        emit(Resource.loading(null))
+        try {
+            remote.daftarToko(dataRequest).let {
+                if (it.isSuccessful) {
+                    val body = it.body()
+                    emit(Resource.success(body?.data))
+                    logs("Success :: " + it.body().toString())
+                } else {
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error", null))
+                    logs("Error Not Success :: " + it.message())
+                }
+            }
+        } catch (e: Exception) {
+            emit(Resource.error(e.message?: "Terjadi Kesalahan !", null))
+            logs("DAFTAR TOKO ERROR :: " + e.message)
         }
     }
 

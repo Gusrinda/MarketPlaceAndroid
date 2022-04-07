@@ -19,6 +19,9 @@
         android:theme="@style/Theme.MarketPlace"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.toko.TokoSayaActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.toko.BukaToko"
             android:exported="false" />
         <activity

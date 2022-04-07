@@ -1,13 +1,11 @@
 package com.gusrinda.marketplace.core.data.source.remote.network
 
+import com.gusrinda.marketplace.core.data.source.remote.request.DaftarTokoRequest
 import com.gusrinda.marketplace.core.data.source.remote.request.LoginRequest
 import com.gusrinda.marketplace.core.data.source.remote.request.RegisterRequest
 import com.gusrinda.marketplace.core.data.source.remote.request.UpdateRequest
-import com.gusrinda.marketplace.core.data.source.remote.response.LoginResponse
-import com.gusrinda.marketplace.core.data.source.remote.response.RegisterResponse
-import com.gusrinda.marketplace.core.data.source.remote.response.UpdateUserResponse
+import com.gusrinda.marketplace.core.data.source.remote.response.*
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -24,7 +22,6 @@ interface ApiService {
         @Body registerRequest: RegisterRequest
     ): Response<RegisterResponse>
 
-
     @PUT("update-user/{id}")
     suspend fun updateUser(
         @Path("id") id: Int,
@@ -37,6 +34,19 @@ interface ApiService {
         @Path("id") id: Int? = null,
         @Part data : MultipartBody.Part? = null
     ): Response<UpdateUserResponse>
+
+    // @Headers(API)
+    @POST("toko")
+    suspend fun registerToko(
+        @Body daftarTokoRequest: DaftarTokoRequest
+    ): Response<BaseResponse<TokoResponse>>
+
+    // @Headers(API)
+    @POST("toko")
+    suspend fun registerProduct(
+        @Body daftarTokoRequest: DaftarTokoRequest
+    ): Response<BaseResponse<ProductResponse>>
+
 
 
 

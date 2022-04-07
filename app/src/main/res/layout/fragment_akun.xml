@@ -103,7 +103,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_marginTop="@dimen/_4sdp"
-        android:id="@+id/btn_login_google"
+        android:id="@+id/btn_buka_toko"
         style="@style/Button.OutlineBox"
         android:textAllCaps="false"
         android:layout_width="match_parent"

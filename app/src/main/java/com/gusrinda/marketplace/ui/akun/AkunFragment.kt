@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.gusrinda.marketplace.NavigationActivity
 import com.gusrinda.marketplace.databinding.FragmentAkunBinding
+import com.gusrinda.marketplace.ui.toko.BukaToko
 import com.gusrinda.marketplace.ui.updateProfile.UpdateProfileActivity
 import com.gusrinda.marketplace.util.Constant
 import com.gusrinda.marketplace.util.Prefs
@@ -58,6 +59,10 @@ class AkunFragment : Fragment() {
             pushActivity(NavigationActivity::class.java)
         }
 
+        binding.btnBukaToko.setOnClickListener {
+            intentActivity(BukaToko::class.java)
+        }
+
     }
 
     private fun setupAkunUser() {
@@ -71,11 +76,9 @@ class AkunFragment : Fragment() {
                 txtEmailUser.text = user.email
                 txtInisialUser.text = user.name.getInitial()
 
-
                 if (user.image != null) {
                     binding.txtInisialUser.isInvisible = true
                 }
-
 
                 Picasso.get().load(Constant.BASE_IMAGE_URL + user.image).into(binding.imgUser)
 
