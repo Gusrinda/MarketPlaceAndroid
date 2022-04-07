@@ -32,7 +32,7 @@ interface ApiService {
     @POST("upload-photo-user/{id}")
     suspend fun updatePhotoProfile(
         @Path("id") id: Int? = null,
-        @Part data : MultipartBody.Part? = null
+        @Part data: MultipartBody.Part? = null
     ): Response<UpdateUserResponse>
 
     // @Headers(API)
@@ -47,7 +47,9 @@ interface ApiService {
         @Body daftarTokoRequest: DaftarTokoRequest
     ): Response<BaseResponse<ProductResponse>>
 
-
-
+    @GET("toko-user/{id}")
+    suspend fun getTokoUser(
+        @Path("id") id: Int? = null
+    ): Response<LoginResponse>
 
 }

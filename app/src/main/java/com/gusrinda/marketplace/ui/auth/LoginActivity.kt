@@ -2,7 +2,7 @@ package com.gusrinda.marketplace.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.gusrinda.marketplace.NavigationActivity
+import com.gusrinda.marketplace.ui.navigation.NavigationActivity
 import com.gusrinda.marketplace.core.data.source.remote.network.State
 import com.gusrinda.marketplace.core.data.source.remote.request.LoginRequest
 import com.gusrinda.marketplace.databinding.ActivityLoginBinding

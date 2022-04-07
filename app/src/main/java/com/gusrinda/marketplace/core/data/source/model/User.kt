@@ -8,5 +8,6 @@ data class User(
     val name: String?,
     val phone: String?,
     val updated_at: String?,
-    val image: String?
+    val image: String?,
+    var toko: Toko?
 )

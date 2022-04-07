@@ -7,13 +7,10 @@ import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isInvisible
 import com.github.drjacky.imagepicker.ImagePicker
-import com.gusrinda.marketplace.NavigationActivity
+import com.gusrinda.marketplace.ui.navigation.NavigationActivity
 import com.gusrinda.marketplace.core.data.source.remote.network.State
-import com.gusrinda.marketplace.core.data.source.remote.request.RegisterRequest
 import com.gusrinda.marketplace.core.data.source.remote.request.UpdateRequest
-import com.gusrinda.marketplace.databinding.ActivityRegisterBinding
 import com.gusrinda.marketplace.databinding.ActivityUpdateProfileBinding
-import com.gusrinda.marketplace.ui.auth.AuthViewModel
 import com.gusrinda.marketplace.util.Constant
 import com.gusrinda.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.*

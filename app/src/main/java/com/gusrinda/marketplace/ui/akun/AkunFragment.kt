@@ -4,19 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.gusrinda.marketplace.NavigationActivity
+import com.gusrinda.marketplace.ui.navigation.NavigationActivity
 import com.gusrinda.marketplace.databinding.FragmentAkunBinding
-import com.gusrinda.marketplace.ui.toko.BukaToko
+import com.gusrinda.marketplace.ui.toko.BukaTokoActivity
+import com.gusrinda.marketplace.ui.toko.TokoSayaActivity
 import com.gusrinda.marketplace.ui.updateProfile.UpdateProfileActivity
 import com.gusrinda.marketplace.util.Constant
 import com.gusrinda.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.getInitial
 import com.inyongtisto.myhelper.extension.intentActivity
 import com.inyongtisto.myhelper.extension.pushActivity
+import com.inyongtisto.myhelper.extension.toGone
 import com.squareup.picasso.Picasso
 
 class AkunFragment : Fragment() {
@@ -59,9 +61,6 @@ class AkunFragment : Fragment() {
             pushActivity(NavigationActivity::class.java)
         }
 
-        binding.btnBukaToko.setOnClickListener {
-            intentActivity(BukaToko::class.java)
-        }
 
     }
 
@@ -81,6 +80,18 @@ class AkunFragment : Fragment() {
                 }
 
                 Picasso.get().load(Constant.BASE_IMAGE_URL + user.image).into(binding.imgUser)
+
+                if (user.toko != null) {
+                    tvNamaToko.text = user.toko?.name
+                    tvStatusToko.toGone()
+                    btnBukaToko.setOnClickListener {
+                        intentActivity(TokoSayaActivity::class.java)
+                    }
+                } else {
+                    btnBukaToko.setOnClickListener {
+                        intentActivity(BukaTokoActivity::class.java)
+                    }
+                }
 
             }
         }

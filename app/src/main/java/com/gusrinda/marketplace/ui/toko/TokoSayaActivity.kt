@@ -2,9 +2,16 @@ package com.gusrinda.marketplace.ui.toko
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.isInvisible
 import com.gusrinda.marketplace.R
 import com.gusrinda.marketplace.databinding.ActivityTokoSayaBinding
+import com.gusrinda.marketplace.util.Constant
+import com.gusrinda.marketplace.util.Prefs
+import com.inyongtisto.myhelper.extension.getInitial
+import com.inyongtisto.myhelper.extension.intentActivity
 import com.inyongtisto.myhelper.extension.setToolbar
+import com.inyongtisto.myhelper.extension.toGone
+import com.squareup.picasso.Picasso
 
 class TokoSayaActivity : AppCompatActivity() {
 
@@ -17,6 +24,27 @@ class TokoSayaActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setToolbar(binding.lyToolbar.toolbar, "Toko Saya")
+
+        setDataToko()
+
+    }
+
+    private fun setDataToko() {
+
+        val user = Prefs.getUser()
+
+        if (user != null) {
+            binding.apply {
+
+                if (user.toko != null) {
+                    tvName.text = user.toko?.name
+                    tvInisial.text = user.toko?.name.getInitial()
+
+                    Picasso.get().load(Constant.BASE_IMAGE_URL + user.toko?.image).into(imageProfile)
+
+                }
+            }
+        }
 
     }
 

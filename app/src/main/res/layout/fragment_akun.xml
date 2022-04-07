@@ -124,6 +124,7 @@
 
 
                 <TextView
+                    android:id="@+id/tv_nama_toko"
                     android:text="Mau mulai berbisnis ? "
                     android:textColor="@color/dark"
                     android:textSize="@dimen/_12ssp"
@@ -132,7 +133,7 @@
 
                 <TextView
                     android:layout_marginStart="@dimen/_5sdp"
-                    android:id="@+id/btn_daftarToko"
+                    android:id="@+id/tv_status_toko"
                     android:textColor="@color/dark"
                     android:textSize="@dimen/_12ssp"
                     android:textStyle="bold"

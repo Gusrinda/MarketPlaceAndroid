@@ -122,4 +122,25 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
         }
     }
 
+    fun getTokoUser(id : Int) = flow {
+        emit(Resource.loading(null))
+        try {
+            remote.getTokoUser(id).let {
+                if (it.isSuccessful) {
+                    val body = it.body()
+                    val user = body?.data
+                    Prefs.setUser(user)
+                    emit(Resource.success(body?.data))
+                    logs("Success :: " + it.body().toString())
+                } else {
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error", null))
+                    logs("Error Not Success :: " + it.message())
+                }
+            }
+        } catch (e: Exception) {
+            emit(Resource.error(e.message?: "Terjadi Kesalahan !", null))
+            logs("DAFTAR TOKO ERROR :: " + e.message)
+        }
+    }
+
 }
