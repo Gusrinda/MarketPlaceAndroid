@@ -2,10 +2,8 @@ package com.gusrinda.marketplace.core.data.source.remote
 
 import com.github.drjacky.imagepicker.ImagePicker
 import com.gusrinda.marketplace.core.data.source.remote.network.ApiService
-import com.gusrinda.marketplace.core.data.source.remote.request.DaftarTokoRequest
-import com.gusrinda.marketplace.core.data.source.remote.request.LoginRequest
-import com.gusrinda.marketplace.core.data.source.remote.request.RegisterRequest
-import com.gusrinda.marketplace.core.data.source.remote.request.UpdateRequest
+import com.gusrinda.marketplace.core.data.source.remote.request.*
+import com.gusrinda.marketplace.util.getTokoId
 import okhttp3.MultipartBody
 
 class RemoteDataSource(private val api: ApiService) {
@@ -24,4 +22,7 @@ class RemoteDataSource(private val api: ApiService) {
 
     suspend fun getTokoUser(id: Int) = api.getTokoUser(id)
 
+    suspend fun getAlamatToko() = api.getAlamatToko(getTokoId())
+
+    suspend fun tambahAlamatToko(dataReq: AlamatTokoRequest) = api.tambahAlamatToko(dataReq)
 }

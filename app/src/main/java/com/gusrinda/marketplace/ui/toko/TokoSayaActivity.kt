@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.core.view.isInvisible
 import com.gusrinda.marketplace.R
 import com.gusrinda.marketplace.databinding.ActivityTokoSayaBinding
+import com.gusrinda.marketplace.ui.alamatToko.AlamatTokoActivity
+import com.gusrinda.marketplace.ui.alamatToko.AlamatTokoViewModel
 import com.gusrinda.marketplace.util.Constant
 import com.gusrinda.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.getInitial
@@ -12,6 +14,7 @@ import com.inyongtisto.myhelper.extension.intentActivity
 import com.inyongtisto.myhelper.extension.setToolbar
 import com.inyongtisto.myhelper.extension.toGone
 import com.squareup.picasso.Picasso
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TokoSayaActivity : AppCompatActivity() {
 
@@ -25,7 +28,16 @@ class TokoSayaActivity : AppCompatActivity() {
 
         setToolbar(binding.lyToolbar.toolbar, "Toko Saya")
 
+        setButton()
         setDataToko()
+
+    }
+
+    private fun setButton() {
+
+        binding.btnAlamat.setOnClickListener {
+            intentActivity(AlamatTokoActivity::class.java)
+        }
 
     }
 

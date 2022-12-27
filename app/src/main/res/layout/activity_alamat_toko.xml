@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.alamatToko.AlamatTokoActivity">
+
+    <include
+        android:id="@+id/ly_toolbar"
+        layout="@layout/layout_toolbar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_10sdp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_alamat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_alamat_toko"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_above="@id/btn_pilih_alamat"
+            android:layout_marginBottom="@dimen/_5sdp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_pilih_alamat"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_alignParentBottom="true"
+            android:text="Pilih Alamat"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_13sdp" />
+
+        <TextView
+            android:id="@+id/tv_error"
+            android:layout_centerInParent="true"
+            android:text="Tidak ada data alamat . . "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

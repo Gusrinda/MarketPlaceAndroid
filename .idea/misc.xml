@@ -4,11 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/drawable/ic_asset_gold.xml" value="0.2835" />
+        <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/activity_alamat.xml" value="0.34479166666666666" />
+        <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/activity_alamat_toko.xml" value="0.34479166666666666" />
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/activity_buka_toko.xml" value="0.34479166666666666" />
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/activity_main.xml" value="0.34479166666666666" />
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/activity_navigation.xml" value="0.34479166666666666" />
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/activity_register.xml" value="0.34479166666666666" />
+        <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/activity_tambah_alamat_toko.xml" value="0.34479166666666666" />
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/activity_toko_saya.xml" value="0.34479166666666666" />
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/activity_update_profile.xml" value="0.34479166666666666" />
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/fragment_akun.xml" value="0.34479166666666666" />
@@ -16,6 +19,7 @@
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/fragment_home.xml" value="0.34479166666666666" />
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/fragment_keranjang.xml" value="0.34479166666666666" />
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/fragment_notifications.xml" value="0.34479166666666666" />
+        <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/item_alamat_toko.xml" value="0.34479166666666666" />
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/item_home_produk_terbaru.xml" value="0.34479166666666666" />
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/item_home_produk_terlaris.xml" value="0.34479166666666666" />
         <entry key="..\:/Projek/MarketLearn/MarketPlace/app/src/main/res/layout/item_home_slider.xml" value="0.34479166666666666" />

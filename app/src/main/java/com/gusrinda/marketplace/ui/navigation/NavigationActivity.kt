@@ -38,6 +38,7 @@ class NavigationActivity : AppCompatActivity() {
         val id: Int = Prefs.getUser()?.id ?: 0
 
         viewModel.getTokoUser(id).observe(this) {}
+
     }
 
     private fun setupNavBar() {

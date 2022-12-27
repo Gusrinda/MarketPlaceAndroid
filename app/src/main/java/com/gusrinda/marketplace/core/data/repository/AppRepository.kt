@@ -4,10 +4,7 @@ import android.util.Log
 import com.gusrinda.marketplace.core.data.source.local.LocalDataSource
 import com.gusrinda.marketplace.core.data.source.remote.RemoteDataSource
 import com.gusrinda.marketplace.core.data.source.remote.network.Resource
-import com.gusrinda.marketplace.core.data.source.remote.request.DaftarTokoRequest
-import com.gusrinda.marketplace.core.data.source.remote.request.LoginRequest
-import com.gusrinda.marketplace.core.data.source.remote.request.RegisterRequest
-import com.gusrinda.marketplace.core.data.source.remote.request.UpdateRequest
+import com.gusrinda.marketplace.core.data.source.remote.request.*
 import com.gusrinda.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.getErrorBody
 import com.inyongtisto.myhelper.extension.logs
@@ -130,6 +127,44 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
                     val body = it.body()
                     val user = body?.data
                     Prefs.setUser(user)
+                    emit(Resource.success(body?.data))
+                    logs("Success :: " + it.body().toString())
+                } else {
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error", null))
+                    logs("Error Not Success :: " + it.message())
+                }
+            }
+        } catch (e: Exception) {
+            emit(Resource.error(e.message?: "Terjadi Kesalahan !", null))
+            logs("DAFTAR TOKO ERROR :: " + e.message)
+        }
+    }
+
+    fun getAlamatToko() = flow {
+        emit(Resource.loading(null))
+        try {
+            remote.getAlamatToko().let {
+                if (it.isSuccessful) {
+                    val body = it.body()
+                    emit(Resource.success(body?.data))
+                    logs("Success :: " + it.body().toString())
+                } else {
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error", null))
+                    logs("Error Not Success :: " + it.message())
+                }
+            }
+        } catch (e: Exception) {
+            emit(Resource.error(e.message?: "Terjadi Kesalahan !", null))
+            logs("DAFTAR ALAMAT TOKO ERROR :: " + e.message)
+        }
+    }
+
+    fun tambahAlamatToko(dataRequest : AlamatTokoRequest) = flow {
+        emit(Resource.loading(null))
+        try {
+            remote.tambahAlamatToko(dataRequest).let {
+                if (it.isSuccessful) {
+                    val body = it.body()
                     emit(Resource.success(body?.data))
                     logs("Success :: " + it.body().toString())
                 } else {

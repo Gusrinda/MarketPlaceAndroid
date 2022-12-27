@@ -72,7 +72,6 @@ class BukaTokoActivity : AppCompatActivity() {
 
                     Prefs.setUser(user)
 
-
                     finish()
 
                 }

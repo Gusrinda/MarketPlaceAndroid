@@ -8,4 +8,9 @@
     <string name="title_akun">Akun</string>
     <string name="cari_produk_disini">Cari produk disini</string>
     <string name="alamat">Alamat Toko</string>
+    <string name="label_lokasi">Lokasi Toko</string>
+    <string name="alamat_toko">Alamat Toko</string>
+    <string name="kode_pos">Kode Pos</string>
+    <string name="email">Email</string>
+    <string name="no_telepon">Nomor Telepon</string>
 </resources>
